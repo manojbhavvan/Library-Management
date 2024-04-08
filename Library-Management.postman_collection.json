@@ -1,0 +1,628 @@
+{
+	"info": {
+		"_postman_id": "d4a321fe-2351-4646-b3fb-f5baa7265ba8",
+		"name": "Library-Management",
+		"description": "This API collection provides endpoints to manage student records in a library management system. It includes CRUD operations for creating, reading, updating, and deleting student data. The API is built using Python and FastAPI, with data stored in a MongoDB database.\n\nEndpoints:\n\n1. **Create Student**: POST /students - Create a new student record.\n    \n2. **Get Students List:** GET /students - Retrieve a list of student record based on query parameters.\n    \n3. **Get Student**: GET /students/{id} - Retrieve a specific student record.\n4. **Update Student**: PATCH /students/{id} - Update an existing student record.\n5. **Delete Student**: DELETE /students/{id} - Delete a student record.\n    \n\nEach endpoint is designed to handle JSON data and responds with appropriate status codes and messages. The API is secured using environment variables for sensitive credentials like database URI, ensuring secure communication and data storage.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23687971"
+	},
+	"item": [
+		{
+			"name": "Student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Tester 1\",\r\n    \"age\": 23,\r\n    \"address\": {\r\n        \"city\": \"Chennai\",\r\n        \"country\": \"India\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BASE_URL}}students/",
+				"description": "Creates a new student record in the database."
+			},
+			"response": [
+				{
+					"name": "Student 1 Inserted",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"age\": 25,\r\n    \"address\": {\r\n        \"city\": \"New York\",\r\n        \"country\": \"USA\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/students/"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 07 Apr 2024 11:20:50 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "33"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6612819284a39d0360d83aaa\"\n}"
+				},
+				{
+					"name": "Student 2 Inserted",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Alice Smith\",\r\n    \"age\": 22,\r\n    \"address\": {\r\n        \"city\": \"Los Angeles\",\r\n        \"country\": \"USA\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}students/"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 07 Apr 2024 11:21:52 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "33"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"661281d084a39d0360d83aab\"\n}"
+				},
+				{
+					"name": "Student 3 Inserted",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Emily Chen\",\r\n    \"age\": 20,\r\n    \"address\": {\r\n        \"city\": \"Toronto\",\r\n        \"country\": \"Canada\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}students/"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 07 Apr 2024 11:22:16 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "33"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"661281e984a39d0360d83aac\"\n}"
+				},
+				{
+					"name": "Student 4 Inserted",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"David Kim\",\r\n    \"age\": 30,\r\n    \"address\": {\r\n        \"city\": \"Seoul\",\r\n        \"country\": \"South Korea\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}students/"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 07 Apr 2024 11:22:38 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "33"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"661281ff84a39d0360d83aad\"\n}"
+				},
+				{
+					"name": "Student 5 Inserted",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Bob Johnson\",\r\n    \"age\": 27,\r\n    \"address\": {\r\n        \"city\": \"London\",\r\n        \"country\": \"UK\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}students/"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 07 Apr 2024 11:23:19 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "33"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6612822784a39d0360d83aae\"\n}"
+				},
+				{
+					"name": "Update Verification Test Input",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Tester 1\",\r\n    \"age\": 23,\r\n    \"address\": {\r\n        \"city\": \"Chennai\",\r\n        \"country\": \"India\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}students/"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 07 Apr 2024 11:51:12 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "33"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"661288b1029fe217c4e43dee\"\n}"
+				}
+			]
+		},
+		{
+			"name": "List Students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}students?age=25",
+					"host": [
+						"{{BASE_URL}}students"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "USA",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "25"
+						}
+					]
+				},
+				"description": "Retrieves a list of record based on the query parameters obtained."
+			},
+			"response": [
+				{
+					"name": "List of all students",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/students"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 07 Apr 2024 11:33:42 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "392"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"name\": \"John Doe\",\n        \"age\": 25,\n        \"address\": {\n            \"city\": \"New York\",\n            \"country\": \"USA\"\n        }\n    },\n    {\n        \"name\": \"Alice Smith\",\n        \"age\": 22,\n        \"address\": {\n            \"city\": \"Los Angeles\",\n            \"country\": \"USA\"\n        }\n    },\n    {\n        \"name\": \"Emily Chen\",\n        \"age\": 20,\n        \"address\": {\n            \"city\": \"Toronto\",\n            \"country\": \"Canada\"\n        }\n    },\n    {\n        \"name\": \"David Kim\",\n        \"age\": 30,\n        \"address\": {\n            \"city\": \"Seoul\",\n            \"country\": \"South Korea\"\n        }\n    },\n    {\n        \"name\": \"Bob Johnson\",\n        \"age\": 27,\n        \"address\": {\n            \"city\": \"London\",\n            \"country\": \"UK\"\n        }\n    }\n]"
+				},
+				{
+					"name": "Filter Testing 1 USA and 25",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}students?country=USA&age=25",
+							"host": [
+								"{{BASE_URL}}students"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "USA"
+								},
+								{
+									"key": "age",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 07 Apr 2024 11:36:15 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "76"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"name\": \"John Doe\",\n        \"age\": 25,\n        \"address\": {\n            \"city\": \"New York\",\n            \"country\": \"USA\"\n        }\n    }\n]"
+				},
+				{
+					"name": "Filter Testing 2 Age>=25",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}students?age=25",
+							"host": [
+								"{{BASE_URL}}students"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "USA",
+									"disabled": true
+								},
+								{
+									"key": "age",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 07 Apr 2024 11:39:46 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "232"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"name\": \"John Doe\",\n        \"age\": 25,\n        \"address\": {\n            \"city\": \"New York\",\n            \"country\": \"USA\"\n        }\n    },\n    {\n        \"name\": \"David Kim\",\n        \"age\": 30,\n        \"address\": {\n            \"city\": \"Seoul\",\n            \"country\": \"South Korea\"\n        }\n    },\n    {\n        \"name\": \"Bob Johnson\",\n        \"age\": 27,\n        \"address\": {\n            \"city\": \"London\",\n            \"country\": \"UK\"\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Fetch Student",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BASE_URL}}students/66128df932011ff0320583aa",
+				"description": "Retrieves a specific student record based on the provided ID."
+			},
+			"response": [
+				{
+					"name": "Fetched David Kim",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/students/661281ff84a39d0360d83aad"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 07 Apr 2024 11:47:41 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "80"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"David Kim\",\n    \"age\": 30,\n    \"address\": {\n        \"city\": \"Seoul\",\n        \"country\": \"South Korea\"\n    }\n}"
+				},
+				{
+					"name": "Fetched Bob Johnson",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}students/661282d45d76c5620bd8cac4"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 07 Apr 2024 11:49:04 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "74"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Bob Johnson\",\n    \"age\": 27,\n    \"address\": {\n        \"city\": \"London\",\n        \"country\": \"UK\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Manoj Bhavvan\",\r\n    \"age\": 21,\r\n    \"city\": \"Trichy\",\r\n    \"country\": \"India\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BASE_URL}}students/6613c773d2c7c194907a50d0",
+				"description": "Updates an existing student record with the provided data."
+			},
+			"response": [
+				{
+					"name": "Updated Student Details",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Manoj Bhavvan\",\r\n    \"age\": 21,\r\n    \"city\": \"Trichy\",\r\n    \"country\": \"India\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/students/66128df932011ff0320583aa"
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "date",
+							"value": "Sun, 07 Apr 2024 12:29:57 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete Student",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "{{BASE_URL}}students/6613c776d2c7c194907a50d1",
+				"description": "Deletes a specific student record based on the provided ID."
+			},
+			"response": [
+				{
+					"name": "Deleted an Entry",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://127.0.0.1:8000/students/6613c776d2c7c194907a50d1"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 08 Apr 2024 10:31:30 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "2"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{}"
+				}
+			]
+		}
+	]
+}
