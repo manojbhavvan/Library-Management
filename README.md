@@ -5,6 +5,7 @@ This API provides endpoints for managing student records in a library system. It
 
 ## API Documentation
 The detailed API documentation can be found [here](https://documenter.getpostman.com/view/23687971/2sA35Myz41).
+The APi is deployed in render. Check out the API with this [link](https://librarymanagement-latest.onrender.com).
 
 ## Technologies Used
 - Python
